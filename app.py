@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect
+from flask import Flask,render_template,request,redirect,url_for
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,7 +12,7 @@ def add():
     if request.method == "POST":
         with open("number.txt","w") as f:
             f.write(request.form['number'])
-    return redirect("http://127.0.0.1:5000/")
+    return redirect(url_for("hello"))
 
 
 
